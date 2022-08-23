@@ -1,15 +1,26 @@
-#!/bin/bash 
+#!/bin/bash
 args=("$@")
+re='^[0-9]+$'
+counter=1
+# counteradditional=$(($#-3))
+counterall=$(($#))
+# echo $counteradditional
+
 echo Number of arguments: $#
 echo 1st argument: ${args[0]}
 echo 2nd argument: ${args[1]}
 echo 3nd argument: ${args[2]}
-echo more arguments: ${args[3]}, ${args[4]}, ${args[5]}, ${args[6]}
+printf "Additional arguments: "
+for (( i = 3; i < $counterall; ++i )); do
+  printf "${args[$i]} "
+done
+printf "\n"
 
 ArrayStatus=("normal" "request" "failure" "error" "warning" "alert" "notice" "note")
-echo "Name: $1"
-echo "Count: $2"
-echo "Type: $3"
+
+# echo "Name: $1"
+# echo "Count: $2"
+# echo "Type: $3"
 
 mkdir -p $HOME/mylogs
 cd $HOME/mylogs
@@ -22,12 +33,6 @@ then
 fi
 
 touch $1.log
-
-re='^[0-9]+$'
-counter=1
-# counteradditional=$(($#-3))
-counterall=$(($#))
-# echo $counteradditional
 
 for i in "${args[@]}"; do
 
