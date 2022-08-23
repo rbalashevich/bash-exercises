@@ -39,10 +39,13 @@ for i in "${args[@]}"; do
 echo "🧮 Argument counter in array is $counter now"
 echo "🔬 Dumping argument, it is \"$i\" now. Checking is it a numeric or not"
 if [[ $counter -gt 2 && $i =~ $re ]] ; then
-   echo "🔢 Error: one of additional parameters is numeric and not a string! Exiting." >&2; exit 1
-fi
+   echo "🔢 Error: one of additional parameters is numeric and not a string! Exiting." >&2
+   exit 1
+else 
  for (( i = 3; i < $counterall; ++i )); do
    printf "${args[$i]}: ${ArrayStatus[RANDOM%7]}\n" >> ./$1.log
  done
+fi
 counter=$((counter+1))
+
 done
