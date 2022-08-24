@@ -4,10 +4,10 @@ script_args=("$@")
 
 name="${script_args[0]}"
 count="${script_args[1]}"
-args=("${script_args[@]:3}") # https://stackoverflow.com/a/1336245
+args=("${script_args[@]:2}") # https://stackoverflow.com/a/1336245
 
 echo "Number of arguments: $#"
-echo "Name: ${name}"
+echo "Filename: ${name}"
 echo "Count: ${count}"
 echo "Additional arguments: ${args[@]}"
 
