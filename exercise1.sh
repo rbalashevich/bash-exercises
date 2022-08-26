@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if (( $# < 3 ))
+then
+        printf "⚠️  Usage: $0 arg1 arg2 arg3 ... three or more arguments!\n"
+        exit
+fi
+
 script_args=("$@")
 
 name="${script_args[0]}"
